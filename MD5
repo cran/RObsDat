@@ -1,8 +1,8 @@
-660e566d050b0364ceb94946488e059f *DESCRIPTION
+b88e95f290b2ef134dfc027480209e2d *DESCRIPTION
 853354a350dbfa37aebd1569d69a0c31 *NAMESPACE
 a3cd02a7f339fbc5afb943141b5f6590 *R/CVtables.R
 53255e3798ab8b663e48c349e056bbb1 *R/addCV.R
-f2b602cccd3371ad9dd285eda1e2892b *R/addDataValues.R
+69163ac373ed33f54cff5f90181b201e *R/addDataValues.R
 4dbdefc8aaa761d34805fb4f1ff61f8d *R/addISOMetadata.R
 c3cbf5c7e592216feb02830b236be46e *R/addOffsetType.R
 2511761dc5e4e657003bc4bd78dd34a8 *R/addQualityControlLevel.R
@@ -46,6 +46,10 @@ a3e412ae3bcbfb7cf4094540075a7233 *R/testfun.R
 7425c19e27e1535b3e750b62b0d03af7 *R/updateCV.R
 a15bd0ecfa69108ef9bb19601199d0c3 *R/updateDataValues.R
 028129b68c03b0984b789dac96c70e99 *inst/RODM.db
+a5a15eacc7c9c6dc04bf960bc9a323bf *inst/doc/vignettes/RObsDat.bib
+3cdcce848152c19a797a11e3604f604a *inst/doc/vignettes/RObsDat_tutorial.Snw
+2eb222a10108055b7a2fa16afdd75e6a *inst/doc/vignettes/odm.pdf
+1746590ec7afa8f42cd343d52a9f9089 *inst/doc/vignettes/odm.ppm
 a2c49af517838851282e2a915272761b *inst/longexample/IPD_2009_selected_indicators1.csv
 be716b4891a4d71cf82dc76f547032a5 *inst/longexample/MinimumDietaryEnergyRequirement.csv
 b66e94a6db4a056240fe7c89a57646cf *inst/longexample/Natl_Pop_Proj_A2.csv

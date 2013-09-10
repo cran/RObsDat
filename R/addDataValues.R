@@ -100,6 +100,16 @@ addDataValues <- function(DataZoo=NULL, Date=NULL, Value=NULL, ValueAccuracy=rep
 			if(NROW(database.entries)>0){
 				to.test <- merge(database.entries@values, xts(Value[row.sel,column], order.by=order.date), join="right")
 				stopifnot(NROW(to.test) == NROW(row.sel))
+				if(NCOL(to.test)!=2){
+					cat("Error while checking for duplicates. Contact the maintainer\n")
+
+					cat("database.entries:\n")
+					print(database.entries)
+					str(database.entries)
+					cat("\n\nValue[row.sel,column]:\n")
+					print(Value[row.sel,column])
+					stop("Error while checking for duplicates. Contact the maintainer\n")
+				}
 				names(to.test) <- c("inDatabase", "toImport")
 				if(any(different <- (abs(to.test$inDatabase - to.test$toImport) > tolerance), na.rm=TRUE)){
 					if(interactive()){
