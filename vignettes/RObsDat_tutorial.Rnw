@@ -198,6 +198,7 @@ be smart about repeated execution of commands and
 will avoid duplication of records. Let's get
 started:
 <<label=part1>>=
+require("RObsDat")
 getDefaultDB()
 @
 

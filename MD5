@@ -1,4 +1,4 @@
-accec0618ea4decc1d05634b209b8b3b *DESCRIPTION
+4b4d075add11ef8bfcd6c94f69c19db2 *DESCRIPTION
 853354a350dbfa37aebd1569d69a0c31 *NAMESPACE
 a3cd02a7f339fbc5afb943141b5f6590 *R/CVtables.R
 53255e3798ab8b663e48c349e056bbb1 *R/addCV.R
@@ -37,6 +37,7 @@ ba50a509993e3b15a8f05fd473bb991f *R/reload.R
 af745fc89302bff388f562ba3545721e *R/restructureDataResult.R
 e3ce20ca2b42e20c303de9374b92af6f *R/run.query.R
 6226ae91d774cb9a84fa2376f12cb65a *R/run.sql.script.R
+b657dda90effd5b862271eb840766815 *R/sqlnow.R
 578c9b2812d2081dd72c4c5f2d71e724 *R/sqlstatements.R
 2c8ac543b0a2d38eecb2f055bc9c4447 *R/sv.R
 96c6a01c31ab7f484c7755f134ad6ff9 *R/svk.R
@@ -45,10 +46,11 @@ a3e412ae3bcbfb7cf4094540075a7233 *R/testfun.R
 3078fb23ef24c7ac17fafce6bea3e3f5 *R/tz2offset.R
 7425c19e27e1535b3e750b62b0d03af7 *R/updateCV.R
 a5ff28e36eaeb6a589d2cdc2e16c7135 *R/updateDataValues.R
+44d0d5028c137e495bd8decf6335b961 *build/vignette.rds
 028129b68c03b0984b789dac96c70e99 *inst/RODM.db
-a5a15eacc7c9c6dc04bf960bc9a323bf *inst/doc/vignettes/RObsDat.bib
-3cdcce848152c19a797a11e3604f604a *inst/doc/vignettes/RObsDat_tutorial.Snw
-2eb222a10108055b7a2fa16afdd75e6a *inst/doc/vignettes/odm.pdf
+85b9577800e491bc6d1dbfcc25d853c2 *inst/doc/RObsDat_tutorial.R
+422cffd50bca643a688da65e3805e6af *inst/doc/RObsDat_tutorial.Rnw
+711cb1ff4c45b868aef2827e1acc1e71 *inst/doc/RObsDat_tutorial.pdf
 a2c49af517838851282e2a915272761b *inst/longexample/IPD_2009_selected_indicators1.csv
 be716b4891a4d71cf82dc76f547032a5 *inst/longexample/MinimumDietaryEnergyRequirement.csv
 b66e94a6db4a056240fe7c89a57646cf *inst/longexample/Natl_Pop_Proj_A2.csv
@@ -75,7 +77,6 @@ ca91bba1857e61a629cffe1eaa68209e *inst/longexample/ofile_watergap_ipsla2nat_qsto
 51230dd5b21b034d102c9ad6f7b72f5a *inst/longexample/years_of_schooling_HDI_2009.csv
 c85115e1d51eb1ab7999e924f3b2e08f *inst/odm1_1_addVersion.sql
 25bb7e15fd50a24789df963b62e66b28 *inst/odm1_1_raw.sql
-6afe993bce218da37453fde11d403c79 *inst/tests/RODM.db
 7649b7563ba8dea82f609988e582908f *inst/tests/test_db_engines.R
 25d1bca9ca52f8baac759ceb6d02dbbf *inst/tests/test_longExample.R
 6008f5aafc03760fac6807da7abc5676 *inst/tests/test_metadata.R
@@ -105,3 +106,6 @@ a2af119b1c9f76be69bd2162397fb232 *man/observations.Rd
 6d706525ee0a05e4f7e334fec59a9501 *man/reload.Rd
 7e91734508d5b868b2042f18bdfac2e7 *man/restructureDataResult.Rd
 2cf669625f66997e6c7244fb01c0fde0 *tests/test-all.R
+4c72ff34ba96ed752d7456f54839202f *vignettes/RObsDat.bib
+422cffd50bca643a688da65e3805e6af *vignettes/RObsDat_tutorial.Rnw
+2eb222a10108055b7a2fa16afdd75e6a *vignettes/odm.pdf
