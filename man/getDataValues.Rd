@@ -1,5 +1,4 @@
-\name{getDataMatrix}
-\alias{getDataMatrix}
+\name{getDataValues}
 \alias{getDataValues}
 \alias{getDataVersions}
 \title{
@@ -7,8 +6,6 @@ Retrieve data from the observations database
 }
 \description{
 getDataValues allows to query data from the database. 
-
-getDataMatrix obtaines data for a certain variable for all sites.
 
 getDataVersions displays all the versions available in the database.
 }
@@ -21,8 +18,6 @@ getDataValues(ID = NULL, from = NULL, to = NULL,
                  QualityControlLevel = NULL, VersionID = NULL,
                  VersionDate = NULL, show.deleted = FALSE, 
 		 all.ID = FALSE)
-
-getDataMatrix(variables, aggregate, select.time = "latest",  warn.missing = FALSE)
 
 getDataVersions()
 }
@@ -52,7 +47,7 @@ End date of the period for which to retrieve the information
  Information about the type of the offset as defined in the OffsetTypes table. See also \code{\link{addOffsetType}}. 
 }
   \item{CensorCode}{
- Information about the cesor used for the observation. 
+ Information about the censor used for the observation. 
 }
   \item{Qualifier}{
 Qualifying information that can note anything unusual or
@@ -68,7 +63,7 @@ Reference to the original sources of the data, providing information sufficient 
 retrieve and reconstruct the data value from the original data files
 }
   \item{Sample}{
-Information about physical samples analyzed in a laboratory to obtain an observation.
+Information about physical samples analysed in a laboratory to obtain an observation.
 }
   \item{DerivedFromID}{
 Reference to another record in the database, from which a value was derived.
@@ -85,29 +80,21 @@ Creation date of the version to be retrieved (see details about version manageme
   \item{show.deleted}{
 Include records that have been deleted (see details about version management)
 }
-
-  \item{variables}{
-name of the variables for which to retrieve a data matrix.
-}
-  \item{aggregate}{
-  aggregation function to aggregate multiple values in DataMatrix. Only used if select.time = NULL
-}
-  \item{select.time}{
-  POSIX time object: What point in time should be used to fill the DataMatrix? 
-}
-  \item{warn.missing}{
-Boolean indicating if missing information should be reported.
-}
   \item{all.ID}{
 Boolean: Can the function assume that all values are passed as ID. Reduces number of Database queries. Do not use normally, mainly for internal use.
 }
 }
 \details{
-ToDo: Details about Version Management
+Raw data often needs to be cleaned before it can
+be used. RObsDat supports this and allows to
+reconstruct data modification operations by use of version management.
+This is valid for deleted and previous versions.
 What do you want to know in addition?
 }
 \value{
-ToDo: describe return values
+The function 'getDataValues' returns a spacetime object.
+Through using the R package spacetime it combine spatial data (sp), time series (xts) and the measurements.
+Furthermore they are attached ValueIDs, DerivedFromIDs and Metadata of the spacetime object.
 }
 \author{
 Dominik Reusser
@@ -130,10 +117,10 @@ var.id <- getID("Variable", "Distance")
 
 # Get data
 data <- getDataValues(Variable="Distance", Site="test site") 
-	# returns data object of class 'observations' with 4 slots
+	# returns data object of class 'spacetime' with 3 slots
 
 # Get data values:
-data@values #returns data object of class 'xts'
+data@data #returns values of spacetime-object
 
 }
 \keyword{ utilities }

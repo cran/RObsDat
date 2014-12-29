@@ -3,6 +3,7 @@
 \usepackage{natbib}
 \usepackage{rotating}
 \usepackage[utf8]{inputenc} 
+\usepackage{Sweave}
 \begin{document}
 \title{Tutorial to the RObsDat-package}
 \author{Dominik Reusser}
@@ -139,22 +140,26 @@ In case you don't know what to do,
 database file shipped with the package. This
 command also work if your db file is called \verb@RODM.db@ and
 is situated in your working directory.
-<<label=default, eval=FALSE>>=
-getDefaultDB()
-@
+\begin{Schunk}
+\begin{Sinput}
+> getDefaultDB()
+\end{Sinput}
+\end{Schunk}
 
 To connect to a different SQLite
 database, you may use the following set of
 commands:
-<<label=sqlite, eval=FALSE>>=
-require("RObsDat")
-require("RSQLite")
-m <- dbDriver("SQLite")
-dbname = "database.db"
-con <- dbConnect(m, dbname = dbname)
-sqhandler <-  new("odm1_1Ver", con=con)
-options(odm.handler=sqhandler)
-@
+\begin{Schunk}
+\begin{Sinput}
+> require("RObsDat")
+> require("RSQLite")
+> m <- dbDriver("SQLite")
+> dbname = "database.db"
+> con <- dbConnect(m, dbname = dbname)
+> sqhandler <-  new("odm1_1Ver", con=con)
+> options(odm.handler=sqhandler)
+\end{Sinput}
+\end{Schunk}
 
 
 However, concurrent data
@@ -164,23 +169,24 @@ recommended in such a case. Contact your system
 administrator if you need to set-up a database
 server. To connect to a running server, you may
 use the following commands.
-<<label=engines, eval=FALSE>>=
-#connect to postgreSQL database
-require("RObsDat")
-require("RPostgreSQL")
-m <- dbDriver("PostgreSQL")
-con <- dbConnect(m, user="a_user", password="secret", dbname="obsdat")
-sqhandler <-  new("odm1_1Ver", con=con)
-options(odm.handler=sqhandler)
-
-#connect to MySQL database
-require("RObsDat")
-require("RMySQL")
-m <- dbDriver("MySQL")
-con <- dbConnect(m, user="a_user", password="secret", dbname="obsdat")
-sqhandler <-  new("odm1_1Ver", con=con)
-options(odm.handler=sqhandler)
-@
+\begin{Schunk}
+\begin{Sinput}
+> #connect to postgreSQL database
+> require("RObsDat")
+> require("RPostgreSQL")
+> m <- dbDriver("PostgreSQL")
+> con <- dbConnect(m, user="a_user", password="secret", dbname="obsdat")
+> sqhandler <-  new("odm1_1Ver", con=con)
+> options(odm.handler=sqhandler)
+> #connect to MySQL database
+> require("RObsDat")
+> require("RMySQL")
+> m <- dbDriver("MySQL")
+> con <- dbConnect(m, user="a_user", password="secret", dbname="obsdat")
+> sqhandler <-  new("odm1_1Ver", con=con)
+> options(odm.handler=sqhandler)
+\end{Sinput}
+\end{Schunk}
 
 \section{An example session}
 \label{sec:example}
@@ -197,36 +203,100 @@ delete the file. However, RObsDat is designed to
 be smart about repeated execution of commands and
 will avoid duplication of records. Let's get
 started:
-<<label=part1>>=
-require("RObsDat")
-getDefaultDB()
-@
+\begin{Schunk}
+\begin{Sinput}
+> getDefaultDB()
+\end{Sinput}
+\end{Schunk}
 
 Before adding data values, we need to set up the
 meta-data. We will check what the correct names of
 the meta-data are:
 
-<<label=part2>>=
-#Store metadata in database
-getMetadata("SpatialReference", SRSName="WGS84", exact=TRUE)
-
-addSite(Code="testLocation", Name="Virtual test site", x=-5, y=46,
-	LatLongDatum="WGS84", Elevation=1500, State="Germany")
-
-getMetadata("Units", Abbreviation="cm")
-getMetadata("VariableName", Term="Distance")
-
-addVariable(Name="Distance", Unit="cm", ValueType="Field Observation",
-	GeneralCategory="Instrumentation", Code="test_dist")
-
-addQualityControlLevel(ID=6,Code="ok", Definition="The default")
-
-addISOMetadata(TopicCategory="Unknown", Title="Testdata",
-	Abstract="This data is created to test the functions of RObsDat")
-addSource(Organization="Your Org", SourceDescription="Madeup data", 
-	SourceLink="RObsDat Documentation", ContactName="Yourself",
-	Metadata="Testdata")
-@
+\begin{Schunk}
+\begin{Sinput}
+> #Store metadata in database
+> getMetadata("SpatialReference", SRSName="WGS84", exact=TRUE)
+\end{Sinput}
+\begin{Soutput}
+  ID SRSID SRSName IsGeographic Notes
+1  3  4326   WGS84         TRUE      
+\end{Soutput}
+\begin{Sinput}
+> addSite(Code="testLocation", Name="Virtual test site", x=-5, y=46,
++ 	LatLongDatum="WGS84", Elevation=1500, State="Germany")
+> getMetadata("Units", Abbreviation="cm")
+\end{Sinput}
+\begin{Soutput}
+    ID                                                    Name
+1    9                                               arcminute
+2   14                                       square centimeter
+3   32                             watts per square centimeter
+4   47                                           centimeter   
+5   86                                   centimeter of mercury
+6   87                                     centimeter of water
+7  109                                    centimeters per hour
+8  110                                  centimeters per second
+9  136                  calories per square centimeter per day
+10 137               calories per square centimeter per minute
+11 138               milliliters per square centimeter per day
+12 149                               absorbance per centimeter
+13 187                             microsiemens per centimeter
+14 190                              cubic centimeters per gram
+15 193                              grams per cubic centimeter
+16 226 the ratio between UV absorbance at 254 nm and DOC level
+17 253       absorbance per centimeter per mg/L of given acid 
+18 263                             millisiemens per centimeter
+19 281                            cubic centimeters per second
+20 292                              decisiemens per centimeter
+21 294                            Joules per square centimeter
+22 318                              hits per square centimeter
+23 319                     hits per square centimeter per hour
+                      Type  Abbreviation
+1                    Angle        arcmin
+2                     Area          cm^2
+3              Energy Flux        W/cm^2
+4                   Length            cm
+5          Pressure/Stress         cm Hg
+6          Pressure/Stress        cm H2O
+7                 Velocity         cm/hr
+8                 Velocity          cm/s
+9              Energy Flux    cal/cm^2 d
+10             Energy Flux  cal/cm^2 min
+11          Hyporheic flux     ml/cm^2 d
+12   Extinction/Absorbance          A/cm
+13 Electrical Conductivity         uS/cm
+14         Specific Volume        cm^3/g
+15           Concentration        g/cm^3
+16  Specific UV Absorbance L/(mg DOC/cm)
+17              Absorbance   100/cm mg/L
+18 Electrical Conductivity         mS/cm
+19                    Flow      cm^3/sec
+20 Electrical Conductivity         dS/cm
+21         Energy per Area        J/cm^2
+22           Precipitation     hits/cm^2
+23                Velocity  hits/cm^2 hr
+\end{Soutput}
+\begin{Sinput}
+> getMetadata("VariableName", Term="Distance")
+\end{Sinput}
+\begin{Soutput}
+      Term
+1 Distance
+                                                                                               Definition
+1 Distance measured from a sensor to a target object such as the surface of a water body or snow surface.
+\end{Soutput}
+\begin{Sinput}
+> addVariable(Name="Distance", Unit="cm", ValueType="Field Observation",
++ 	GeneralCategory="Instrumentation", Code="test_dist")
+> addQualityControlLevel(ID=6,Code="ok", Definition="The default")
+> addISOMetadata(TopicCategory="Unknown", Title="Testdata",
++ 	Abstract="This data is created to test the functions of RObsDat")
+> addSource(Organization="Your Org", SourceDescription="Madeup data", 
++ 	SourceLink="RObsDat Documentation", ContactName="Yourself",
++ 	Metadata="Testdata")
+\end{Sinput}
+\end{Schunk}
 
 With this set of commands, we are done preparing
 meta-data for a first Variable and Location. Note
@@ -244,14 +314,15 @@ create a tutorial data set and store it a xts.
 We introduce two data errors that we want to
 correct in a subsequent test. 
 
-<<label=part2>>=
-library(xts)
-
-example.data <- xts(1:366, seq(as.POSIXct("2010-01-01", tz="UTC"), 
-		as.POSIXct("2011-01-01", tz="UTC"), length.out=366))
-example.data[50] <- 100
-example.data[200] <- 40
-@
+\begin{Schunk}
+\begin{Sinput}
+> library(xts)
+> example.data <- xts(1:366, seq(as.POSIXct("2010-01-01", tz="UTC"), 
++ 		as.POSIXct("2011-01-01", tz="UTC"), length.out=366))
+> example.data[50] <- 100
+> example.data[200] <- 40
+\end{Sinput}
+\end{Schunk}
 
 With loggers, we often obtain multiple files with
 partially redundant data (the later dataset
@@ -265,14 +336,30 @@ first importing the first 100 data sets, modifying
 our data and then importing the remaining data
 set.
 
-<<label=part3>>=
-addDataValues(example.data[1:100], Site="testLocation", Variable="test_dist",  
-	Source="Madeup", QualityControlLevel="ok")
-#Avoid duplicates autmatically
-example.data[75] <- 100
-addDataValues(example.data, Site="testLocation", Variable="test_dist",  
-	Source="Madeup", QualityControlLevel="ok")
-@
+\begin{Schunk}
+\begin{Sinput}
+> addDataValues(example.data[1:100], Site="testLocation", Variable="test_dist",  
++ 	Source="Madeup", QualityControlLevel="ok")
+\end{Sinput}
+\begin{Soutput}
+Importing column  1 out of 1 
+\end{Soutput}
+\begin{Sinput}
+> #Avoid duplicates autmatically
+> example.data[75] <- 100
+> addDataValues(example.data, Site="testLocation", Variable="test_dist",  
++ 	Source="Madeup", QualityControlLevel="ok")
+\end{Sinput}
+\begin{Soutput}
+Importing column  1 out of 1 
+Data to import is not matching data in database for 1 values (See plot)
+What shall I do?
+  1) Dischard data to import and import remaining, missing data
+  2) Overwrite values in database with new values
+  0) Stop and let you modify the data to import before another attempt
+Enter a number (0-2) for your choise.
+\end{Soutput}
+\end{Schunk}
 
 Note the ''split
 responsibility'' between the R environment and
@@ -293,43 +380,55 @@ database remembers synonyms for data sets.
 Data in the database can be accessed and filtered
 in an intuitive way:
 
-<<label=part4>>=
-inDB <- getDataValues(Site="test")
-plot(inDB)
-@
+\begin{Schunk}
+\begin{Sinput}
+> inDB <- getDataValues(Site="test")
+> plot(inDB)
+\end{Sinput}
+\end{Schunk}
 
 Raw data often needs to be cleaned before it can
 be used. RObsDat supports this and allows to
 reconstruct data modification operations. The
 following lines demonstrate this:
 
-<<label=part4>>=
-#Version management
-to.correct <- which(inDB@values < 100 & 
-	index(inDB@values) > as.POSIXct("2010-06-01"))
-inDB@values[to.correct] <- 200
-inDB@values[50] <- 50
-
-updateDataValues(inDB, "Correction of wrong value")
-
-ver2 <- inDB
-ver2@values[50:60] <- 90
-updateDataValues(ver2, "Changing more data")
-
-ver3 <- inDB
-ver3@values[50:60] <- 190
-updateDataValues(ver3, "Ups, I used 90 instead of 190 by mistake")
-
-deleteDataValues(inDB[250],  "And finally remove a value")
-
-getDataVersions()
-
-versionQuery <- getDataValues(Site=1, VersionID=1)
-
-plot(versionQuery)
-versionQuery <- getDataValues(Site=1, VersionID=2)
-plot(versionQuery)
-@
+\begin{Schunk}
+\begin{Sinput}
+> #Version management
+> to.correct <- which(inDB@values < 100 & 
++ 	index(inDB@values) > as.POSIXct("2010-06-01"))
+> inDB@values[to.correct] <- 200
+> inDB@values[50] <- 50
+> updateDataValues(inDB, "Correction of wrong value")
+> ver2 <- inDB
+> ver2@values[50:60] <- 90
+> updateDataValues(ver2, "Changing more data")
+> ver3 <- inDB
+> ver3@values[50:60] <- 190
+> updateDataValues(ver3, "Ups, I used 90 instead of 190 by mistake")
+> deleteDataValues(inDB[250],  "And finally remove a value")
+\end{Sinput}
+\begin{Soutput}
+NULL
+\end{Soutput}
+\begin{Sinput}
+> getDataVersions()
+\end{Sinput}
+\begin{Soutput}
+  VersionID          ValidUntil                           VersionComment
+1         1 2013-10-23 09:35:34                          Initial Version
+2         2 2013-10-23 09:35:34                Correction of wrong value
+3         3 2013-10-23 09:35:35                       Changing more data
+4         4 2013-10-23 09:35:36 Ups, I used 90 instead of 190 by mistake
+5         5                <NA>               And finally remove a value
+\end{Soutput}
+\begin{Sinput}
+> versionQuery <- getDataValues(Site=1, VersionID=1)
+> plot(versionQuery)
+> versionQuery <- getDataValues(Site=1, VersionID=2)
+> plot(versionQuery)
+\end{Sinput}
+\end{Schunk}
 
 \section{Conclusion}
 \label{sec:conclusion}
