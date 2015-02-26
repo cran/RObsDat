@@ -1,5 +1,5 @@
 h.m <- function(object){ #handler.message
-	require(RSQLite)
+	requireNamespace("RSQLite")
 	m <- dbDriver("SQLite")
 	con <- dbConnect(m, dbname = "RODM.db")
 

@@ -4,7 +4,7 @@ addOffsetType <- function(Units, Description){
 
 	#check ref: Units
 	UnitsID <- getID("Units",Units)
-	if(NROW(existing <- getMetadata("OffsetType",Description=Description, Units = UnitsID))>0){
+	if(NROW(existing <- getMetadata("OffsetType",Description=Description, Units = UnitsID, exact=TRUE))>0){
 		warning(paste("Existing OffsetType entry:", Description, ", Skipping all imports"))
 		return()
 	}

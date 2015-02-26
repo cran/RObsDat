@@ -1,7 +1,7 @@
 addISOMetadata <- function(TopicCategory="Unknown", Title="Unknown", Abstract="Unknown", ProfileVersion="Unknown", MetadataLink=NULL){
 
 	theUnexisting <- rep(TRUE, length(Title))
-	if(NROW(existing <- getMetadata("ISOMetadata",TopicCategory=TopicCategory, Title=Title))>0){
+	if(NROW(existing <- getMetadata("ISOMetadata",TopicCategory=TopicCategory, Title=Title, exact=TRUE))>0){
 		warning(paste("Skiping existing ISOMetadata entry:", paste(existing[,3], collapse="; ")))
 		theUnexisting <- !(Title %in% existing[,3])
 	}

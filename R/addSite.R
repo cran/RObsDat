@@ -26,7 +26,7 @@ addSite <- function(Code, Name, x, y, Elevation=rep(0, length(Code)), LatLongDat
 
 	#Check for existing entries
 	theUnexisting <- rep(TRUE, length(Code))
-	if(NROW(existing <- getMetadata("Site",Name=Name))>0){
+	if(NROW(existing <- getMetadata("Site",Name=Name, exact=TRUE))>0){
 		warning(paste("Skiping existing Site(s):", paste(existing[,3], collapse="; "), "\n"))
 		theUnexisting <- !(Name %in% existing[,3])
 

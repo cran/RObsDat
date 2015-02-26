@@ -1,6 +1,6 @@
 context("various")
 
-if(FALSE){
+if(TRUE){
 
 test_that("NA data does not produce an error", {
 	on.exit( { cat("Exiting and deleting RODM.db\n")
@@ -120,6 +120,27 @@ test_that("Download of QUASHI vocabulary works", {
 
 	#Confirmations
 	expect_that(NROW(unit.meta)>200, equals(TRUE))
+		})
+
+test_that("Download of QUASHI vocabulary works and produces correct number of entries (bug from Pilz)", {
+	#Setup
+	on.exit( { cat("Exiting and deleting RODM.db\n")
+				unlink("RODM.db")})
+	try(getMetadata("Units"))
+	getMetadata("Units")
+	unit.meta <- getMetadata("Units")
+
+	#get correct number
+	library(SSOAP)
+	def <- SSOAP::processWSDL("http://his.cuahsi.org/ODMCV_1_1/ODMCV_1_1.asmx?WSDL")
+	ff <- SSOAP::genSOAPClientInterface(def = def)
+	ans <- ff@functions$GetUnits()
+	test <- XML::xmlToList(XML::xmlParse(ans, asText = TRUE))
+	correct.length <- sum(sapply(test$Records, function(x){ any(names(x)!="count")}))
+	
+
+	#Confirmations
+	expect_that(NROW(unit.meta)==correct.length, equals(TRUE))
 		})
 
 test_that("CV table not working correctly with wrong arguments", {

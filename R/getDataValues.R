@@ -55,7 +55,7 @@ getDataValues <- function(ID=NULL, from=NULL, to=NULL,  tz=c("global", "UTC", "G
 
 
 
-	# Datensätze mit grösster VersionsID und mit ValidUntilID <= aktuell verlangte Version existiert
+	# Datensaetze mit groesster VersionsID und mit ValidUntilID <= aktuell verlangte Version existiert
 	old.entry <- NULL
 	if(!is.null(VersionDate)){
 		if(!is.null(VersionID)){

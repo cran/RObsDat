@@ -158,7 +158,7 @@ addDataValues <- function(DataZoo=NULL, Date=NULL, Value=NULL, ValueAccuracy=rep
 				} else {
 					theDate <- Date[do.import]
 				}
-				# strftime(theDate, "%z") funktioniert. As.numeric schmeißt Fehler-Warnung: NAs introduced by coercion
+				# strftime(theDate, "%z") funktioniert. As.numeric produced a warning: NAs introduced by coercion
 				thetz <- strftime(theDate, "%z")
 				todo("Correct functioning of tz")
 

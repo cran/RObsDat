@@ -3,7 +3,7 @@ addCV <- function(table, term, definition){
 	for(i in seq(along=term)){
 		definition[i] <- gsub("'", "`", definition[i])
 		definition[i] <- gsub("\"", "`", definition[i])
-		if(NROW(existing <- IgetCV(getOption("odm.handler"), table=table, term=term[i], definition=definition[i]))>0){
+		if(NROW(existing <- IgetCV(getOption("odm.handler"), table=table, term=term[i], definition=definition[i], exact=TRUE))>0){
 			warning(paste("Skipping existing entry:", term[i]))
 			return()
 		}

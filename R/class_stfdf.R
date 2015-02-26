@@ -48,8 +48,8 @@ function(x, i, j, ... ){
 	# callNextMethod call the method defined for the parent class
 	 object <- callNextMethod(x,i,j,...)						# Overwrite-method. get Slots from the main-data-stfdf
 
-# wenn weitere Parameter angegeben sind (außer Zeit und Ort) wird auch nach allen Metadaten gesucht.
-# Wenn hingegen nur eine bestimmte Variable selectiert ist, sollen natürlich auch die Metadaten reduziert werden.
+# wenn weitere Parameter angegeben sind (ausser Zeit und Ort) wird auch nach allen Metadaten gesucht.
+# Wenn hingegen nur eine bestimmte Variable selectiert ist, sollen natuerlich auch die Metadaten reduziert werden.
 	
 	dots = list(...)
 	#check if variables are choosed

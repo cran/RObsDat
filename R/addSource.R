@@ -5,7 +5,7 @@ addSource <- function(Organization, SourceDescription, SourceLink=NULL, ContactN
 
 	#checking for existing entries 
 	for(i in seq(along=Organization)){
-		if(NROW(existing <- getMetadata("Source",Organization=Organization[i], Description=SourceDescription[i], Citation=Citation[i]))>0){
+		if(NROW(existing <- getMetadata("Source",Organization=Organization[i], Description=SourceDescription[i], Citation=Citation[i], exact=TRUE))>0){
 			warning(paste("Skipping existing ISOMetadata entry:", SourceDescription[i]))
 			next
 		}

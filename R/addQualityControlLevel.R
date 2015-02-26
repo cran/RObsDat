@@ -1,5 +1,5 @@
 addQualityControlLevel <- function(ID, Code, Definition, Explanation=""){
-	if(NROW((existing <- IgetQualityControlLevel(getOption("odm.handler"), ID=ID)))>0){
+	if(NROW((existing <- IgetQualityControlLevel(getOption("odm.handler"), ID=ID, exact=TRUE)))>0){
 		warning(paste("Existing entry with ID:", ID, "Skiping import!"))
 		return(existing)
 	}

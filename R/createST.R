@@ -1,10 +1,10 @@
 createST <- function(sp, siteID, location, timeobject, timelong, variables, thedata){ # timelong wird bisher nicht genutzt.
   
-  # zur Erstellung eines leeren DataFrames wird Matrix benötigt.
+  # zur Erstellung eines leeren DataFrames wird Matrix benoetigt.
   # Spaltenanzahl ist Anzahl der unterschiedlichen Variablen, Zeilenanzahl Messzeiten * Orte
   dataValues <- as.data.frame(matrix(NA, ncol=(length(variables) + 2), nrow=length(timeobject) *length(sp)))
 
-  # wiederhole die siteID solange bis es auf die Länge der Time bzw. DataValues kommt
+  # wiederhole die siteID solange bis es auf die Laenge der Time bzw. DataValues kommt
 	time.col <- rep(timeobject, length(sp)) 
 	site.col <- rep(siteID, each=length(timeobject))
 

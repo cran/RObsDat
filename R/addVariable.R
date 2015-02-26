@@ -26,7 +26,7 @@ addVariable <- function(Code, Name,
 
 
 	#check for existing entries
-	if(NROW(existing <- getMetadata("Variable",Code=Code, Name=Name, Speciation = Speciation, SampleMedium=SampleMedium, ValueType=ValueType, DataType=DataType, GeneralCategory=GeneralCategory))>0){
+	if(NROW(existing <- getMetadata("Variable",Code=Code, Name=Name, Speciation = Speciation, SampleMedium=SampleMedium, ValueType=ValueType, DataType=DataType, GeneralCategory=GeneralCategory, exact=TRUE))>0){
 		warning(paste("Existing Variable entry:", Name, " -- Skiping all imports!"))
 		return()
 	}
