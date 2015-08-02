@@ -1,5 +1,5 @@
-ea0227c17cb780fb2123cf7acfa094d5 *DESCRIPTION
-9441a831d1ef6c3e1fd90865d1cf2095 *NAMESPACE
+a4e843ad459296fb26832bb2863dba5c *DESCRIPTION
+9f2eaa6c038df95b1eb213be20183e10 *NAMESPACE
 a3cd02a7f339fbc5afb943141b5f6590 *R/CVtables.R
 e10aecaa5874c46aa090bed8897f31ee *R/addCV.R
 f488eae079a2533025b5dfd578ae3376 *R/addDataValues.R
@@ -44,11 +44,11 @@ e3ce20ca2b42e20c303de9374b92af6f *R/run.query.R
 9f13111390f03e9ad2cab566879a2dd9 *R/tz2offset.R
 6cdb3ee3d98916abc6207709672eb06d *R/updateCV.R
 2ac806cc18eb495f32ea058fbfa999fc *R/updateDataValues.R
-d41cc00f498c97511d3ec751a0964431 *build/vignette.rds
+5b2f5267a753de301876e58f58c4caa7 *build/vignette.rds
 028129b68c03b0984b789dac96c70e99 *inst/RODM.db
 2ecd543dcebae21f80b24f0e5f647545 *inst/doc/RObsDat_Einstiegstutorial.R
 eaab195a385cdb1f089cd7a8f76e9e39 *inst/doc/RObsDat_Einstiegstutorial.Rnw
-42cf886de280ab7c6b98ee2d804118a1 *inst/doc/RObsDat_Einstiegstutorial.pdf
+6a447da08a02f92a0a047a4a2d42005d *inst/doc/RObsDat_Einstiegstutorial.pdf
 a2c49af517838851282e2a915272761b *inst/longexample/IPD_2009_selected_indicators1.csv
 be716b4891a4d71cf82dc76f547032a5 *inst/longexample/MinimumDietaryEnergyRequirement.csv
 b66e94a6db4a056240fe7c89a57646cf *inst/longexample/Natl_Pop_Proj_A2.csv
@@ -103,9 +103,8 @@ f636597336ca858d3b45edd9107a889d *man/getMetadata.Rd
 106fb7d97cd1be0fcfdfd4673c7e4536 *man/odm.close.Rd
 6931dd04a4a81c5a9654cdf9c4ed189e *man/odm1_1-class.Rd
 d1fc950618c4cc0236d7a5a6a4d4740b *man/reload.Rd
-6501375db44f470a584d096053e12d75 *man/restructureDataResult.Rd
 2cf669625f66997e6c7244fb01c0fde0 *tests/test-all.R
-2c74f5e10fd775b51331be4f99aa167e *vignettes/RObsDat.bib
+17832842de88bef08b0a331b7d759cc3 *vignettes/RObsDat.bib
 eaab195a385cdb1f089cd7a8f76e9e39 *vignettes/RObsDat_Einstiegstutorial.Rnw
 711cb1ff4c45b868aef2827e1acc1e71 *vignettes/RObsDat_tutorial.pdf
 f157d1b00ad35a0b7b90bf3cce51733d *vignettes/RObsDat_tutorial.tex

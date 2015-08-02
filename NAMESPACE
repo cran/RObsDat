@@ -31,3 +31,7 @@ import(
 importFrom(e1071, permutations)
 importFrom(zoo, coredata)
 importFrom(zoo, plot.zoo)
+importFrom("graphics", "legend", "points")
+importFrom("stats", "time")
+importFrom("utils", "read.csv", "read.csv2", "read.table", "recover",
+	"str", "write.table")
