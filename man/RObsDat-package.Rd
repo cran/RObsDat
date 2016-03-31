@@ -17,7 +17,7 @@ Note: tell me what additional questions should be answered here.
 
 The package has a large number of dependencies. To install, use the following command:
 
-\code{install.packages(c("spacetime", "sp", "testthat","XMLSchema", "SSOAP", "xts", "vwr", "RSQLite"), repos = c("http://www.omegahat.org/R", "http://mirrors.softliste.de/cran"))}
+\code{install.packages(c("spacetime", "sp", "testthat","XMLSchema", "SSOAP", "xts", "vwr", "RSQLite"), repos = c("http://www.omegahat.net/R", "http://mirrors.softliste.de/cran"))}
 }
 \details{
 Use \code{\link{addDataValues}} to store data in the database.

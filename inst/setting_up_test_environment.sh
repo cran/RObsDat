@@ -15,7 +15,7 @@ echo "CREATE DATABASE obsdat_test;" | sudo su -cpsql - postgres
 echo "GRANT ALL PRIVILEGES ON DATABASE obsdat_test to reusser;" | sudo su -cpsql - postgres 
 
 R -e 'dir.create(Sys.getenv("R_LIBS_USER"))'
-R -e "install.packages(c('sp', 'testthat','XMLSchema', 'SSOAP', 'xts', 'vwr', 'RSQLite', 'e1071', 'maptools', 'geonames', 'spacetime'), repos = c('http://www.omegahat.org/R', '$cranmirror'), lib=Sys.getenv('R_LIBS_USER'))"
+R -e "install.packages(c('sp', 'testthat','XMLSchema', 'SSOAP', 'xts', 'vwr', 'RSQLite', 'e1071', 'maptools', 'geonames', 'spacetime'), repos = c('http://www.omegahat.net/R', '$cranmirror'), lib=Sys.getenv('R_LIBS_USER'))"
 R -e "install.packages(c('RMySQL', 'RPostgreSQL'), repos = '$cranmirror', lib=Sys.getenv('R_LIBS_USER'))"
 
 svn checkout svn://svn.r-forge.r-project.org/svnroot/r-hydro/pkg/Rodm

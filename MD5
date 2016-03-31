@@ -1,4 +1,4 @@
-a4e843ad459296fb26832bb2863dba5c *DESCRIPTION
+4358fd22fe5dc0acf752b1223ed7f7d1 *DESCRIPTION
 9f2eaa6c038df95b1eb213be20183e10 *NAMESPACE
 a3cd02a7f339fbc5afb943141b5f6590 *R/CVtables.R
 e10aecaa5874c46aa090bed8897f31ee *R/addCV.R
@@ -44,11 +44,11 @@ e3ce20ca2b42e20c303de9374b92af6f *R/run.query.R
 9f13111390f03e9ad2cab566879a2dd9 *R/tz2offset.R
 6cdb3ee3d98916abc6207709672eb06d *R/updateCV.R
 2ac806cc18eb495f32ea058fbfa999fc *R/updateDataValues.R
-5b2f5267a753de301876e58f58c4caa7 *build/vignette.rds
+c7a66164f2a7e45703c61617cf2aa542 *build/vignette.rds
 028129b68c03b0984b789dac96c70e99 *inst/RODM.db
 2ecd543dcebae21f80b24f0e5f647545 *inst/doc/RObsDat_Einstiegstutorial.R
 eaab195a385cdb1f089cd7a8f76e9e39 *inst/doc/RObsDat_Einstiegstutorial.Rnw
-6a447da08a02f92a0a047a4a2d42005d *inst/doc/RObsDat_Einstiegstutorial.pdf
+992f957b3cd1941f0a2d64ed183afb39 *inst/doc/RObsDat_Einstiegstutorial.pdf
 a2c49af517838851282e2a915272761b *inst/longexample/IPD_2009_selected_indicators1.csv
 be716b4891a4d71cf82dc76f547032a5 *inst/longexample/MinimumDietaryEnergyRequirement.csv
 b66e94a6db4a056240fe7c89a57646cf *inst/longexample/Natl_Pop_Proj_A2.csv
@@ -75,13 +75,13 @@ ca91bba1857e61a629cffe1eaa68209e *inst/longexample/ofile_watergap_ipsla2nat_qsto
 51230dd5b21b034d102c9ad6f7b72f5a *inst/longexample/years_of_schooling_HDI_2009.csv
 c85115e1d51eb1ab7999e924f3b2e08f *inst/odm1_1_addVersion.sql
 25bb7e15fd50a24789df963b62e66b28 *inst/odm1_1_raw.sql
-efd7de149c9803c5c513690f1b4ee6c0 *inst/setting_up_test_environment.sh
+9df9ac5534391688d04e050a8c953391 *inst/setting_up_test_environment.sh
 7649b7563ba8dea82f609988e582908f *inst/tests/test_db_engines.R
 25d1bca9ca52f8baac759ceb6d02dbbf *inst/tests/test_longExample.R
 6008f5aafc03760fac6807da7abc5676 *inst/tests/test_metadata.R
 c32c1ab57e3ba496e433cdc0f85801f4 *inst/tests/test_various.R
 9c45a721b7a31985568af1a17d69144c *inst/tests/test_versions.R
-b499ca9b8d41dd4cb27c411fdb54e4ca *man/RObsDat-package.Rd
+057f4d84762e6d913ea67bf1beb2d538 *man/RObsDat-package.Rd
 43fcd7783436a880bd50ee762442325b *man/addCV.Rd
 eb3b1a45acff7814f8338feba9c4b2d7 *man/addDataValues.Rd
 9374797631a9ab41dae5aa9fd6823f57 *man/addISOMetadata.Rd
@@ -104,7 +104,7 @@ f636597336ca858d3b45edd9107a889d *man/getMetadata.Rd
 6931dd04a4a81c5a9654cdf9c4ed189e *man/odm1_1-class.Rd
 d1fc950618c4cc0236d7a5a6a4d4740b *man/reload.Rd
 2cf669625f66997e6c7244fb01c0fde0 *tests/test-all.R
-17832842de88bef08b0a331b7d759cc3 *vignettes/RObsDat.bib
+75ec420621c1bac83998c1ffa7de20ce *vignettes/RObsDat.bib
 eaab195a385cdb1f089cd7a8f76e9e39 *vignettes/RObsDat_Einstiegstutorial.Rnw
 711cb1ff4c45b868aef2827e1acc1e71 *vignettes/RObsDat_tutorial.pdf
 f157d1b00ad35a0b7b90bf3cce51733d *vignettes/RObsDat_tutorial.tex
